@@ -18,14 +18,14 @@ export class CategoryController {
   }
 
   @Post()
-  crearCategory(@Body() CategoryDto: CategoryDto): Promise<Category> {
-    return this.categoryService.crearCategory(CategoryDto);
+  crearCategory(@Body() categoryDto: CategoryDto): Promise<Category> {
+    return this.categoryService.crearCategory(categoryDto);
   }
 
 
   @Put(":id")
-  actualizarCategory(@Param("id") id: number, @Body() CategoryDto: CategoryDto): Promise<Category> {
-    return this.categoryService.actualizarCategory(id, CategoryDto);
+  actualizarCategory(@Param("id") id: number, @Body() categoryDto: CategoryDto): Promise<Category> {
+    return this.categoryService.actualizarCategory(id, categoryDto);
   }
   
 

@@ -4,6 +4,6 @@ import { ProductRequestService } from './service/product-request/product-request
 
 @Module({
   controllers: [ProductRequestController],
-  providers: [ProductRequestService]
+  providers: [ProductRequestService],
 })
 export class ProductRequestModule {}

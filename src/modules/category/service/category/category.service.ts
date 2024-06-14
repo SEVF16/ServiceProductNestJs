@@ -12,13 +12,12 @@ export class CategoryService {
   ) {}
 
   async obtenerCategorys(): Promise<Category[]> {
-    return this.categoryRepository.find({ relations: ['productos'] });
+    return this.categoryRepository.find();
   }
 
   async obtenerCategory(id: number): Promise<Category> {
     return this.categoryRepository.findOne({
-      where: { id },
-      relations: ['productos'],
+      where: { id }
     });
   }
 

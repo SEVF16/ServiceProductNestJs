@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Category } from 'src/modules/category/entity/category.entity';
+
 
 @Entity()
 export class Product {
@@ -15,6 +16,6 @@ export class Product {
   @Column()
   precio: number;
 
-  @ManyToOne(() => Category, (category) => category.productos)
-  category: Category;
+  @Column({name: 'categoryId',})
+  categoryIdFk: number;
 }

@@ -1,8 +1,15 @@
-import { Category } from 'src/modules/category/entity/category.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class ProductoDto {
+  @ApiProperty()
   nombre: string;
+
+  @ApiProperty()
   descripcion: string;
+
+  @ApiProperty()
   precio: number;
-  category: Category;
+
+  @ApiProperty()
+  categoryIdFk: number; 
 }

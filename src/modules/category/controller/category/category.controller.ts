@@ -1,19 +1,22 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from "@nestjs/common";
-import { CategoryService } from "../../service/category/category.service";
-import { Category } from "../../entity/category.entity";
-import { CategoryDto } from "../../dto/category.dto";
+/* eslint-disable prettier/prettier */
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { CategoryService } from '../../service/category/category.service';
+import { Category } from '../../entity/category.entity';
+import { CategoryDto } from '../../dto/category.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller("category")
+@ApiTags('Category')
+@Controller('category')
 export class CategoryController {
-  constructor(private categoryService: CategoryService) {}
+  constructor(private readonly categoryService: CategoryService) {}
 
   @Get()
   obtenerCategorys(): Promise<Category[]> {
     return this.categoryService.obtenerCategorys();
   }
 
-  @Get(":id")
-  obtenerCategory(@Param("id") id: number): Promise<Category> {
+  @Get(':id')
+  obtenerCategory(@Param('id') id: number): Promise<Category> {
     return this.categoryService.obtenerCategory(id);
   }
 
@@ -23,14 +26,14 @@ export class CategoryController {
   }
 
 
-  @Put(":id")
-  actualizarCategory(@Param("id") id: number, @Body() categoryDto: CategoryDto): Promise<Category> {
+  @Put(':id')
+  actualizarCategory(@Param('id') id: number, @Body() categoryDto: CategoryDto): Promise<Category> {
     return this.categoryService.actualizarCategory(id, categoryDto);
   }
   
 
-  @Delete(":id")
-  eliminarCategory(@Param("id") id: number): Promise<void> {
+  @Delete(':id')
+  eliminarCategory(@Param('id') id: number): Promise<void> {
     return this.categoryService.eliminarCategory(id);
   }
 }

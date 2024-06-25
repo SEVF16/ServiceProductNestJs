@@ -11,6 +11,26 @@ export class ProductRequestController {
 
     constructor(private readonly solicitudService: ProductRequestService) {}
 
+    @Get("/api/produc")
+    async findSolicitud(){
+      return this.solicitudService.getSolicitudesWithProducts();
+    }
+
+    @Get("/solicitudes")
+    async solicitudes(){
+      return this.solicitudService.obtenerSolicitudConProductos(3);
+    }
+
+    @Get("/solicitudes/pr")
+    async solicitudesPr(){
+      return this.solicitudService.obtenerSolicitudesConElementosYProductos();
+    }
+
+    @Get("/elemnt/pr")
+    async elemnto(){
+      return this.solicitudService.obtenerElementosConProductos();
+    }
+
     @Get()
     async findAll() {
       return this.solicitudService.findAll();

@@ -5,6 +5,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors({
+    origin: 'http://localhost:4200', // URL del cliente que deseas permitir
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
+    allowedHeaders: 'Content-Type, Accept, Authorization', // Encabezados permitidos
+    credentials: true, // Habilita el intercambio de cookies a través de dominios
+  });
+
   const options = new DocumentBuilder()
     .setTitle('API Documentation')
     .setDescription('API description')

@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { elementodelinea } from 'src/modules/product-request/entity/elementodelinea.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 
 
 @Entity()
@@ -16,6 +17,9 @@ export class Product {
   @Column()
   precio: number;
 
-  @Column({name: 'categoryId',})
+  @Column({ name: 'categoryId' })
   categoryIdFk: number;
+
+  @OneToMany(() => elementodelinea, elementoDeLinea => elementoDeLinea.product)
+  elementosDeLinea: elementodelinea[];
 }

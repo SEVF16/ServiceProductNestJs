@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateLineItemDto {
     @ApiProperty()
-    idProducto: number;
+    idProduct: number;
     @ApiProperty()
     cantidad: number;
 

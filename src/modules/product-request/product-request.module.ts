@@ -3,11 +3,11 @@ import { ProductRequestController } from './controller/product-request/product-r
 import { ProductRequestService } from './service/product-request/product-request.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Solicitud } from './entity/solicitud.entity';
-import { ElementoDeLinea } from './entity/ElementoDeLinea.entity';
+import { elementodelinea } from './entity/elementodelinea.entity';
 import { Product } from '../product/entity/product.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Solicitud, ElementoDeLinea, Product])],
+  imports: [TypeOrmModule.forFeature([Solicitud, elementodelinea, Product])],
   controllers: [ProductRequestController],
   providers: [ProductRequestService],
 })
